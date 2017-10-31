@@ -11,22 +11,62 @@ package doctorapp;
  */
 public class LoginCredentials {
 
-    UserName userName;
-    Password password;
-    Email email;
+    // Private Member Variables
+    private UserName userName;
+    private Password password;
+    private Email email;
 
-    public static class UserName {
+    // Constructor
+    public LoginCredentials(
+            UserName userName,
+            Password password,
+            Email email
+    ) throws InvalidLoginCredentials {
 
-        String userName;
-
-        public UserName(String _userName) {
-
-            if (_userName == null) {
-
-            }
-
+        if (userName != null) {
+            this.userName = userName;
+        } else {
+            throw new InvalidLoginCredentials("userName is null");
         }
 
+        if (password != null) {
+            this.password = password;
+        } else {
+            throw new InvalidLoginCredentials("password is null");
+        }
+
+        if (email != null) {
+            this.email = email;
+        } else {
+            throw new InvalidLoginCredentials("email is null");
+        }
+
+    }
+
+    // GETTERS
+    public UserName getUserName() {
+        return userName;
+    }
+
+    public Password getPassword() {
+        return password;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    // Inner Static Classes
+    public static class UserName {
+
+        private String userName;
+
+        public UserName(String userName) throws InvalidUserName {
+
+            if (userName == null) {
+                throw new InvalidUserName("userName is null");
+            }
+        }
     }
 
     public static class Password {
@@ -48,9 +88,11 @@ public class LoginCredentials {
             //        Thow exceptions when they are not valid.
         }
 
-        public String getPassword() {
-            return password;
+        @Override
+        public String toString() {
+            return this.password;
         }
+
     }
 
     public static class Email {
@@ -74,6 +116,19 @@ public class LoginCredentials {
 
         }
 
+        @Override
+        public String toString() {
+            return this.email;
+        }
+
+    }
+
+    // Inner Static Exception-Classes
+    public static class InvalidLoginCredentials extends Exception {
+
+        public InvalidLoginCredentials(String message) {
+            super(message);
+        }
     }
 
     public static class InvalidUserName extends Exception {
