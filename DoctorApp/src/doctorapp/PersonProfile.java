@@ -5,7 +5,7 @@
  */
 package doctorapp;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -13,14 +13,14 @@ import java.util.Calendar;
  */
 public class PersonProfile {
 
-    public FullName _fullName;
-    public Gender _gener;
-    public Calendar _birthdate;// = Calendar.getInstance();
+    private FullName _fullName;
+    private Gender _gener;
+    private Date _birthdate;
 
     public PersonProfile(
             FullName fullName,
             Gender gender,
-            Calendar birthdate
+            Date birthdate
     )
             throws InvalidPersonProfile {
         this._fullName = fullName;
@@ -42,13 +42,8 @@ public class PersonProfile {
             throw new InvalidPersonProfile("this._birthdate == null");
         }
 
-        Calendar rightNow = Calendar.getInstance();
-        boolean birthdateIsAfterNow
-                = (this._birthdate.compareTo(rightNow) >= 1) ? true : false;
+        // TODO - Make sure that the birthdate is before today. 
 
-        if (birthdateIsAfterNow) {
-            throw new InvalidPersonProfile("birthdateIsAfterNow == true");
-        }
     }
 
     public FullName getFullName() {
@@ -64,7 +59,7 @@ public class PersonProfile {
         return 999;
     }
 
-    public Calendar getBirthdate() {
+    public Date getBirthdate() {
         return _birthdate;
     }
 
