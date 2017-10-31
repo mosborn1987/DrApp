@@ -16,7 +16,8 @@ import static org.junit.Assert.*;
 import doctorapp.PersonProfile.*;
 import doctorapp.PersonProfile;
 import junit.framework.Assert;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -130,18 +131,27 @@ public class PersonProfileTest {
         // Test getAge();
 
         FullName fn;
-        Date birthday;
+        LocalDate birthday;
         PersonProfile pf;
 
         try {
             // Full Name
             fn = new PersonProfile.FullName("Mario", "Alberto", "Osborn");
-            birthday = new Date(9, 25, 1987);
+            birthday = LocalDate.of(9, 25, 1987);
             
             pf = new PersonProfile(fn, Gender.MALE, birthday);
             
             int age = pf.getAge();
-            assertTrue(age == 30 );
+            
+            boolean correctAge = (age == 30);
+            assertTrue(correctAge);
+            if( !correctAge )
+            {
+                String message;
+                message = "age should be 30, but is  instead";
+                
+                fail(message);
+            }
             
         } catch (InvalidNameException ex) {
             fail("The name - Mario Alberto Osborn - is valid, constructor failed");

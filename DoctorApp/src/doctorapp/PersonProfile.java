@@ -5,7 +5,9 @@
  */
 package doctorapp;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.LocalDate;
 
 /**
  *
@@ -15,12 +17,12 @@ public class PersonProfile {
 
     private FullName _fullName;
     private Gender _gener;
-    private Date _birthdate;
+    private LocalDate _birthdate;
 
     public PersonProfile(
             FullName fullName,
             Gender gender,
-            Date birthdate
+            LocalDate birthdate
     )
             throws InvalidPersonProfile {
         this._fullName = fullName;
@@ -55,11 +57,14 @@ public class PersonProfile {
     }
 
     public int getAge() {
-        // TODO - Obtain the calculated age from a Calendar class. 
-        return 999;
+        LocalDate birthdate = _birthdate;
+        LocalDate currentDate = LocalDate.now();
+        Period.between(birthdate, currentDate).getYears();
+        return Period.between(LocalDate.MIN, LocalDate.MIN).getYears();
+
     }
 
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return _birthdate;
     }
 
