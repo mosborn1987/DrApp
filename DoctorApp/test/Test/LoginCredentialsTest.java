@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author mosborn1987
  */
-public class LoginCredentials {
+public class LoginCredentialsTest {
     
-    public LoginCredentials() {
+    public LoginCredentialsTest() {
     }
     
     @BeforeClass
