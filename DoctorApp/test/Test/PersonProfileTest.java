@@ -62,7 +62,7 @@ public class PersonProfileTest {
             assertTrue(fn.getFirstString().compareTo("Mario") == 0);
             assertTrue(fn.getMiddleString().compareTo("Alberto") == 0);
             assertTrue(fn.getLastString().compareTo("Osborn") == 0);
-            
+
         } catch (InvalidNameException ex) {
             fail("The name - Mario Alberto Osborn - is valid, constructor failed");
         }
@@ -84,8 +84,8 @@ public class PersonProfileTest {
             // Passed!!
         }
     }
-    
-        @Test
+
+    @Test
     public void test_3() {
         // Test Description:
         // Test toString()
@@ -97,14 +97,14 @@ public class PersonProfileTest {
             assertTrue(fn.getFirstString().compareTo("Mario") == 0);
             assertTrue(fn.getMiddleString().compareTo("Alberto") == 0);
             assertTrue(fn.getLastString().compareTo("Osborn") == 0);
-            assertTrue(fn.toString().compareTo("Mario Alberto Osborn")== 0);
+            assertTrue(fn.toString().compareTo("Mario Alberto Osborn") == 0);
 
         } catch (InvalidNameException ex) {
             fail("The name - Mario Alberto Osborn - is valid, constructor failed");
         }
     }
-    
-            @Test
+
+    @Test
     public void test_4() {
         // Test Description:
         // Test toString()
@@ -116,11 +116,11 @@ public class PersonProfileTest {
             assertTrue(fn.getFirstString().compareTo("Mario") == 0);
             assertTrue(fn.getMiddleString().compareTo("") == 0);
             assertTrue(fn.getLastString().compareTo("Osborn") == 0);
-            assertTrue(fn.toString().compareTo("Mario Osborn")== 0);
+            assertTrue(fn.toString().compareTo("Mario Osborn") == 0);
 
         } catch (InvalidNameException ex) {
             fail("The name - Mario Alberto Osborn - is valid, constructor failed");
         }
     }
 
- }
+}
