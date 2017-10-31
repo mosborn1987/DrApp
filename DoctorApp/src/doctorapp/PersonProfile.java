@@ -59,11 +59,16 @@ public class PersonProfile {
         return _gener;
     }
 
+    public int getAge() {
+        // TODO - Obtain the calculated age from a Calendar class. 
+        return 999;
+    }
+
     public Calendar getBirthdate() {
         return _birthdate;
     }
 
-    public class FullName {
+    public static class FullName {
 
         private Name _first;
         private Name _middle;
@@ -144,7 +149,7 @@ public class PersonProfile {
 
     }
 
-    public class Name {
+    public static class Name {
 
         private String _name;
 
@@ -171,7 +176,7 @@ public class PersonProfile {
         }
     }
 
-    public class InvalidNameException extends Exception {
+    public static class InvalidNameException extends Exception {
 
         public InvalidNameException(String message) {
             super(message);

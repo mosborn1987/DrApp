@@ -10,6 +10,5 @@ package doctorapp;
  * @author mosborn1987
  */
 public class LoginCredentials {
-    private
     
 }
