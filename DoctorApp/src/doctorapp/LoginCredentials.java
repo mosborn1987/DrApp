@@ -33,12 +33,14 @@ public class LoginCredentials {
 
         private String password;
 
-        public Password(String password) throws InvalidPassword {
-            if (password == null) {
+        public Password(String _password) throws InvalidPassword {
+            this.password = _password;
+
+            if (this.password == null) {
                 throw new InvalidPassword("Password constructor was passed a null string");
             }
 
-            if (password.length() == 0) {
+            if (this.password.length() == 0) {
                 throw new InvalidPassword("Password constructor was passed an empty string");
             }
 
@@ -54,6 +56,23 @@ public class LoginCredentials {
     public static class Email {
 
         private String email;
+
+        public Email(String _email) throws InvalidEmail {
+            this.email = _email;
+
+            if (this.email == null) {
+                throw new InvalidEmail("Eamil Constructor was passed a null string.");
+            }
+
+            if (this.email.length() == 0) {
+                throw new InvalidEmail("Eamil Constructor was passed an empty string.");
+            }
+
+            if (this.email.contains("@") == false) {
+                throw new InvalidEmail("Eamil Constructor was passed a string that does not contain the @.");
+            }
+
+        }
 
     }
 
