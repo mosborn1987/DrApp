@@ -95,17 +95,10 @@ public class PersonProfile {
             }
 
             // TODO - A name must have at least a first and last name
-//            if (((this._first == null) | (this._last == null)) ||
-//                    (this._first.toString().length() == 0 &)
-//                    ) {
-//                throw new InvalidNameException(
-//                        "FullName(...) Failed: "
-//                        + this.toString() + " invalid");
-//            }
-        }
-
-        public FullName(String first, String last) throws InvalidNameException {
-            this(first, "", last);
+            if (this._first.toString().compareTo("") == 0) {
+                throw new InvalidNameException(
+                        "FullName(...) Failed: first name invalid ");
+            }
         }
 
         private String getNameString(Name name) {
@@ -116,15 +109,15 @@ public class PersonProfile {
         }
 
         public String getFirstString() {
-            return getNameString(_first);
+            return getNameString(this._first);
         }
 
         public String getMiddleString() {
-            return getNameString(_middle);
+            return getNameString(this._middle);
         }
 
         public String getLastString() {
-            return getNameString(_last);
+            return getNameString(this._last);
         }
 
         @Override
@@ -146,7 +139,6 @@ public class PersonProfile {
 
             return sb.toString();
         }
-
     }
 
     public static class Name {

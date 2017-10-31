@@ -22,23 +22,24 @@ import junit.framework.Assert;
  * @author mosborn1987
  */
 public class PersonProfileTest {
+
     PersonProfile m_profile;
-    
+
     public PersonProfileTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -48,22 +49,41 @@ public class PersonProfileTest {
     //
     // @Test
     // public void hello() {}
-    
     @Test
-    public void test_1(){
-        // Test FullName Class
+    public void test_1() {
+        // Test Description:
+        // This test will make sure that the Constructor is working
+        // correctly, when passed a valid first, middle and last name.
+
         FullName fn;
-        boolean success = true;
-        
-        try{
+
+        try {
             fn = new PersonProfile.FullName("Mario", "Alberto", "Osborn");
             assertTrue(fn.getFirstString().compareTo("Mario") == 0);
             assertTrue(fn.getMiddleString().compareTo("Alberto") == 0);
             assertTrue(fn.getLastString().compareTo("Osborn") == 0);
 
-        }catch(InvalidNameException ex)
-        {
-            fail("The name Mario Osborn is valid, constructor failed");
+        } catch (InvalidNameException ex) {
+            fail("The name - Mario Alberto Osborn - is valid, constructor failed");
         }
     }
+
+    @Test
+    public void test_2() {
+        // Test Description:
+        // An invalid name will be passed. The constructor should throw an
+        // exception
+        FullName fn;
+
+        try {
+            fn = new PersonProfile.FullName(null,"Alberto", "Osborn");
+            
+            fail("The constructor should not have taken 'null' as a first name parameter");
+
+        } catch (InvalidNameException ex) {
+            // Passed!!
+        }
+
+    }
+
 }
