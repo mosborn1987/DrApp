@@ -62,7 +62,7 @@ public class PersonProfileTest {
             assertTrue(fn.getFirstString().compareTo("Mario") == 0);
             assertTrue(fn.getMiddleString().compareTo("Alberto") == 0);
             assertTrue(fn.getLastString().compareTo("Osborn") == 0);
-
+            
         } catch (InvalidNameException ex) {
             fail("The name - Mario Alberto Osborn - is valid, constructor failed");
         }
@@ -76,14 +76,51 @@ public class PersonProfileTest {
         FullName fn;
 
         try {
-            fn = new PersonProfile.FullName(null,"Alberto", "Osborn");
-            
+            fn = new PersonProfile.FullName(null, "Alberto", "Osborn");
+
             fail("The constructor should not have taken 'null' as a first name parameter");
 
         } catch (InvalidNameException ex) {
             // Passed!!
         }
+    }
+    
+        @Test
+    public void test_3() {
+        // Test Description:
+        // Test toString()
 
+        FullName fn;
+
+        try {
+            fn = new PersonProfile.FullName("Mario", "Alberto", "Osborn");
+            assertTrue(fn.getFirstString().compareTo("Mario") == 0);
+            assertTrue(fn.getMiddleString().compareTo("Alberto") == 0);
+            assertTrue(fn.getLastString().compareTo("Osborn") == 0);
+            assertTrue(fn.toString().compareTo("Mario Alberto Osborn")== 0);
+
+        } catch (InvalidNameException ex) {
+            fail("The name - Mario Alberto Osborn - is valid, constructor failed");
+        }
+    }
+    
+            @Test
+    public void test_4() {
+        // Test Description:
+        // Test toString()
+
+        FullName fn;
+
+        try {
+            fn = new PersonProfile.FullName("Mario", "", "Osborn");
+            assertTrue(fn.getFirstString().compareTo("Mario") == 0);
+            assertTrue(fn.getMiddleString().compareTo("") == 0);
+            assertTrue(fn.getLastString().compareTo("Osborn") == 0);
+            assertTrue(fn.toString().compareTo("Mario Osborn")== 0);
+
+        } catch (InvalidNameException ex) {
+            fail("The name - Mario Alberto Osborn - is valid, constructor failed");
+        }
     }
 
-}
+ }
